@@ -1,0 +1,222 @@
+:root {
+    --primary-color: #e61f2b;
+    --secondary-color: #1f1f1f;
+    --accent-color: #1d2570;
+    --container-surface: #f4f5f8;
+    --surface: #ffffff;
+    --on-surface: #1f1f1f;
+    --font-size: 14px;
+}
+
+*{
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 ;
+    padding: 0;
+    font-size: var(--font-size);
+    line-height: 1.6;
+    background-color: var(--container-surface);
+}
+
+/* ✅ Appliquer un fond blanc au container principal */
+.main-container {
+    background-color: var(--surface); 
+}
+
+/* ✅ Styling du menu top */
+.bloc-nav-top {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bloc-nav-top ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.bloc-nav-top ul li {
+    margin: 0 10px;
+}
+
+.bloc-nav-top ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ✅ Bloc nav-drawer : Sidebar dynamique */
+.bloc-nav-drawer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.bloc-nav-drawer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.bloc-nav-drawer ul li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.bloc-nav-drawer ul li i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+/* ✅ Menu icon pour responsive */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ✅ Responsive menu */
+/* @media screen and (max-width: 768px) {
+    .bloc-nav-drawer {
+        width: 0;
+        overflow: hidden;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+} */
+
+/* ✅ Fixe le header en scroll */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Ombre douce */
+    /* background-color: rgba(0, 0, 0, 0.9); */
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* ✅ Fixe le menu latéral sous le header uniquement quand celui-ci est fixé */
+.fixed-sidebar {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 70px); /* Ajuste la hauteur pour éviter un chevauchement */
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease-in-out;
+    z-index: 900;
+}
+
+/* ✅ Masquer le texte du menu latéral en mode réduit */
+@media screen and (max-width: 768px) {
+    .menu-text {
+        display: none;
+    }
+
+    .sidebar {
+        width: 80px; /* Réduction de la largeur */
+    }
+}
+
+/* ✅ Effet de survol et mise en évidence de l'élément actif */
+.nav-link.hover-effect {
+    transition: transform 0.2s, background 0.3s;
+}
+
+.nav-link.hover-effect:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.nav-link-x {
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: 0 0;
+    border: 0;
+    letter-spacing: .05rem;
+    font-weight: 600;
+    font-size: .65rem;
+    line-height: 1;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav-link-x:hover{
+    text-decoration: underline;
+}
+
+.nav-link.active {
+    background: var(--accent-color);
+    font-weight: bold;
+}
+
+/* ✅ Réduction de l’espace du premier ul pour libérer l’espace de recherche */
+.navbar-nav:first-child {
+    margin-right: 20px; /* Ajuste l'espace disponible */
+}
+
+/* ✅ Conteneur de recherche masqué par défaut */
+.search-container {
+    display: flex;
+    align-items: center;
+    height: 26px;
+    width: 0px;
+    opacity: 0;
+    overflow: hidden;
+    transition: width 0.4s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* ✅ Conteneur actif : il se déploie */
+.search-container.active {
+    width: 500px;
+    opacity: 1;
+    display: flex;
+}
+
+/* ✅ Style du champ de recherche */
+.search-input {
+    flex-grow: 1; 
+    border: 1px solid #ccc;
+    border-left: none;
+    padding-right: 7px;
+    padding-left: 7px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* ✅ Bouton de validation collé au champ */
+.search-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    height: 26px;
+    width: 52px;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* ✅ Bouton masqué quand la barre de recherche s'affiche */
+.search-link.hidden {
+    display: none;
+}
+
+
+

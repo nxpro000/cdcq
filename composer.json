@@ -1,0 +1,19 @@
+{
+    "name": "nxpro/cdcq",
+    "description": "Web App",
+    "type": "project",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nxpro000",
+            "email": "nxpro000@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
